@@ -19,3 +19,14 @@ names.pop()
 print('pop會預設刪除最後一筆', names)
 del names[0]
 print('del 刪除第0位', names)
+
+names.sort()
+print('排序', names)
+
+names.reverse()
+print('反轉', names)
+
+names2 = [1,2,3,4]
+#添加延伸
+names.extend(names2)
+print(names)
