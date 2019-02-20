@@ -41,5 +41,5 @@ print(list_1)
 #刪除
 list_1.pop() #隨機刪除
 list_1.remove(777)#如果裡面沒有這個東西會報錯,有就刪除
-list_1.discard('333')# 如果有這個就刪除，沒有也不會報錯 
+list_1.discard('333')# 如果有這個就刪除，沒有也不會報錯
 print(list_1)
