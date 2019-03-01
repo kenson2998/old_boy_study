@@ -46,3 +46,5 @@ f.close()
 # print(f.readline())
 # f.close()
 
+f = open('file_p','r+') #讀寫
+f2 = open('file_p','w+') #寫讀
