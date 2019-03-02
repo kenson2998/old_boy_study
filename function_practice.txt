@@ -1,0 +1,6 @@
+log write 
+log write 
+log write 
+log write 
+log write 
+log write 
