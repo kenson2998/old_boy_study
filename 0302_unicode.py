@@ -2,7 +2,7 @@
 import sys
 
 print(sys.getdefaultencoding())
-
+# utf-8 是1個位元
 # unicode 中英文都是兩個位元組
 # utf-8 中文是3位元 英數是1位元組
 
