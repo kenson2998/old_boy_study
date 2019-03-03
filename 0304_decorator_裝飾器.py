@@ -1,0 +1,33 @@
+'''
+裝飾器：
+1.定義：本質是一個函數，（裝飾其他函數）就是為其他函數添加附加功能
+原則： 1.不能修改被裝飾的函數的源代碼
+      2.不能修改被裝飾的函數的調用方法
+實現裝飾器知識備儲：
+1.函數即“變量”
+2.高階函數
+3.嵌套函數
+
+高階函數 ＋ 嵌套函數 ＝ 裝飾器
+'''
+
+import time
+
+
+def timmer(func):
+    def warpper(*args, **kwargs):
+        start_time = time.time()
+        func()
+        stop_time = time.time()
+        print('the func run time is %s' % (stop_time - start_time))
+
+    return warpper
+
+
+@timmer
+def test1():
+    time.sleep(3)
+    print('in the test1')
+
+
+test1()
