@@ -30,4 +30,20 @@ def test1():
     print('in the test1')
 
 
-test1()
+# test1()
+
+
+def per(function):
+    def calc(*args):
+        a = function(*args)
+        print((a[0]) * 3)
+
+    return calc
+
+@per
+def test2(a,b):
+    print(a,b)
+    return a,b
+
+
+test2(5, 3)
