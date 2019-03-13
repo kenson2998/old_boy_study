@@ -17,7 +17,7 @@ import time
 def timmer(func):
     def warpper(*args, **kwargs):
         start_time = time.time()
-        func()
+        func(*args, **kwargs)
         stop_time = time.time()
         print('the func run time is %s' % (stop_time - start_time))
 
@@ -29,21 +29,36 @@ def test1():
     time.sleep(3)
     print('in the test1')
 
+@timmer
+def test1_1(name, age):
+    print(name, age)
 
-# test1()
+
+test1()
+test1_1("Leon",30)
 
 
 def per(function):
     def calc(*args):
         a = function(*args)
-        print((a[0]) * 3)
+        print((a[0]) * a[1])
 
     return calc
 
+
 @per
-def test2(a,b):
-    print(a,b)
-    return a,b
+def test2(a, b):
+    print(a, b)
+    return a, b
 
 
 test2(5, 3)
+
+
+# 函數嵌套
+
+def foo():
+    def func1():
+        pass
+
+    func1()
