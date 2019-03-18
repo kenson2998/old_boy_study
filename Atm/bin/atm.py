@@ -20,3 +20,5 @@ from conf import settings
 from core import main
 
 main.login()
+main.login()
+
