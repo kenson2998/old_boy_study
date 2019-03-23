@@ -7,8 +7,8 @@ info = {
     "age": 30
 }
 
-# with open('json_p.txt','w') as f:
-#     f.write(json.dumps(info))
+with open('json_p.txt','w') as f:
+    f.write(json.dumps(info))
 
 
 
@@ -21,5 +21,5 @@ info = {
     "func": sayhi
 }
 # pickle 是轉為二進制
-with open('json_p.txt', 'wb') as f:
-    f.write(pickle.dumps(info))
+# with open('json_p.txt', 'wb') as f:
+#     f.write(pickle.dumps(info))
