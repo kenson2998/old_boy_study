@@ -41,7 +41,6 @@ backend www.oldboy.org
 # print(eval(a)) # eval可將字符串變成字典
 a = eval(a)
 
-
 loop_gate = True
 
 hapoxy = {}
@@ -49,7 +48,7 @@ while loop_gate:
     b = input('請選擇功能1.查詢2.新增3.刪除4.離開：')
     if b.isdigit():
         b = int(b)
-        if b < 5:
+        if b < 7:
             if b == 1:
                 count = False
                 finds = input('輸入想查找的：')
@@ -64,7 +63,6 @@ while loop_gate:
                         if finds in line:
                             print(line)
                             count = True
-
             if b == 2:
                 with open('0303_作業', 'a+') as f:
                     cont1 = '        '
@@ -74,10 +72,26 @@ while loop_gate:
                                 cont1 += str(kk) + ' ' + str(vv) + ' '
                             f.write(cont1 + '\n')
                         else:
-                            f.write(k + ' ' + v+'\n')
+                            f.write(k + ' ' + v + '\n')
 
             if b == 3:
-                print('刪除')
+                array1 = []
+                cont1 = '        '
+                with open('0303_作業', 'r') as f, \
+                        open('0303_作業_del', 'w') as f_del:
+                    for k, v in a.items():
+                        if isinstance(v, dict):
+                            for kk, vv in v.items():
+                                cont1 += str(kk) + ' ' + str(vv) + ' '
+                            array1.append(cont1.rstrip() + '\n')
+                        else:
+                            array1.append(k + ' ' + v + '\n')
+                    for line in f:
+
+                        if line in array1:
+                            print('del_lines')
+                        else:
+                            f_del.write(line)
             if b == 4:
                 break
 
