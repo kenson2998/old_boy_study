@@ -1,2 +1,2 @@
 def test():
-    print('in the test1.')
+    print('in the test1 - test function')
