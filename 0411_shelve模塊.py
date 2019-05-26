@@ -10,3 +10,5 @@ d = shelve.open('shelve_test')  # 用shelve 打開文件
 # d.close()  # 會產生三個檔案 .bak , .dat , .dir , 這邊不清楚是否版本問題, 產生的是一個.db
 
 print(d['name'],d['info'])
+
+
