@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aae5fbe2-2a40-4808-be76-f504234f9c91" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0411_sys模塊.py" beforeDir="false" afterPath="$PROJECT_DIR$/0411_sys模塊.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/進度條.py" beforeDir="false" afterPath="$PROJECT_DIR$/sys_進度條.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,28 +34,10 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="354">
-                <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+              <first_editor relative-caret-position="294">
+                <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
               </first_editor>
               <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/0220_dict字典.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="85" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/0220_string.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -239,7 +218,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.171875" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.171875" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" weight="0.32880434" />
@@ -247,7 +226,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32880434" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32880434" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39945653" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -344,13 +323,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/0220_dict字典.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/0220_string.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -358,11 +330,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/0220_dict字典.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/0220_tuple.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="354">
-            <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+          <first_editor relative-caret-position="294">
+            <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
           </first_editor>
           <second_editor />
         </state>
