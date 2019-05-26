@@ -7,3 +7,6 @@ for i in range(10):
     time.sleep(0.1)
 
 print(sys.version)
+print(sys.maxsize)
+
+sys.exit(0) # 正常退出程序為 sys.exit(0)
