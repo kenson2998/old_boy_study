@@ -24,7 +24,7 @@
     * update # 修改已有的,新增沒有的,進行合併
     * items # 將字典變成列表
     * fromkeys([1, 2, 3], ['abc', ['a', 'b', 'c'], 123])  # 給前面三個key一個對應的value“位址”
-####string
+#### string
 * 0220_string
     * capitalize()) #首字母大寫
     * center(50,'*')) #美化打印
@@ -40,7 +40,7 @@
       * translate(a) #套用規則
     * replace('a','A',2)) #可指定置換次數
     * split(' ')) #用空格來分類
-####tuple 
+#### tuple 
 * 0220_dict字典
     * index
     * count
