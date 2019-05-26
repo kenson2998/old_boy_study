@@ -1,9 +1,9 @@
-## index
+## index ##
 
-####for 
+#### for ####
 * 0216 for 練習
   * range(0,5,2)   #每次迴圈+2
-####list 
+#### list 
 * 0218 list 練習
     * append  #增
     * pop  #刪除最後
@@ -11,10 +11,10 @@
     * sort  #排序
     * reverse  #倒轉
     * extend  #延伸
-####copy
+#### copy
   * 0219_copy練習
     * deepcopy  #非位址的複製
-####dict 
+#### dict 
 * 0220_dict字典
     * get  #查
     * in  # '字串' in  dict
