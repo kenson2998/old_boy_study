@@ -1,4 +1,4 @@
-## index ##
+## python note list ##
 
 #### for ####
 * [0216 for 練習](https://github.com/kenson2998/old_boy_study/blob/master/0216%20for%E7%B7%B4%E7%BF%92.py)
