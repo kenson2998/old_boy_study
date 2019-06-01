@@ -150,15 +150,18 @@ f = open('txt.txt','rb',encoding='utf-8')
 * [0303_局部變量](https://github.com/kenson2998/old_boy_study/blob/master/0303_局部變量.py)
 * [0303_遞歸(迴)筆記](https://github.com/kenson2998/old_boy_study/blob/master/0303_遞歸筆記.py)
 * [0303_高階函數](https://github.com/kenson2998/old_boy_study/blob/master/0303_高階函數.py)
-* [0304_decorator_裝飾器、嵌套函數](https://github.com/kenson2998/old_boy_study/blob/master/0304_decorator_裝飾器.py)
-
+* [0304_decorator_裝飾器、嵌套函數](https://github.com/kenson2998/old_boy_study/blob/master/0304_decorator_裝飾器.py)(定義在這看)
+* [0312_局部作用域和全域訪問順序](https://github.com/kenson2998/old_boy_study/blob/master/0312_局部作用域和全域訪問順序.py)
+* [0313_decorator進階](https://github.com/kenson2998/old_boy_study/blob/master/0313_decorator進階.py)
 
 
 ```python
+#宣告函數
 def foo():
     print('123')
 ```
 ```python
+#裝飾器
 def decorator(func):
     def warpper(*args, **kwargs):
         ccc = 0
@@ -167,14 +170,17 @@ def decorator(func):
     return warpper
     
 @decorator
-def func():
+def func1():
     aaa = 0
     bbb = 0
-    
+
+func1()
 ```
-    func()
-    第二種用法
-    
+
+
+```
+otherdeco = decorator(func1) ＃另一種裝飾的用法
+```
 | 裝飾後的func()執行順序      |  內容     |
 | -------- |-------- |
 |1|func()
@@ -191,17 +197,72 @@ def foo():
 
     func1()
 ```
+
+```python
+#decorator進階
+def auth(auth_type):
+    print("auth func:",auth_type)
+
+    def out_wrapper(func):
+        def wrapper(*args, **kwargs):
+            pass
+        return wrapper
+    return out_wrapper
+
+@auth(auth_type = "local")
+def form_page():
+    pass
+```
     
-#### 0312_局部作用域和全域訪問順序
-* [03](https://github.com/kenson2998/old_boy_study/blob/master/0304_decorator_裝飾器.py)
+    
+    
+#### Iterable
+* [0314_Iterator＿迭代器](https://github.com/kenson2998/old_boy_study/blob/master/0314_Iterator＿迭代器.py)(定義在這看)
+
 | 函數      | 註解      |
 | -------- |-------- |
+|Iterable|判斷是否能夠迭代,回傳True or False
+|Iterator|判斷是否是Iterator對象,回傳True or False
+
+```python
+from collections import Iterable
+print(isinstance([],Iterable))
+print(isinstance({},Iterable))
+print(isinstance('abc',Iterable))
+print(isinstance(123,Iterable))
+
+'''
+生成器可以被next調用並不斷返回下一個值的對象稱為迭代器：Iterator
+可以使用isinstance()判斷是否是Iterator對象。
+'''
+from collections import Iterator
+print(isinstance((x for x in range(10)),Iterator))
+
+```
+
+
+
+
+#### generator
+* [0314_generator列表生成](https://github.com/kenson2998/old_boy_study/blob/master/0314_generator列表生成.py)(發現筆記他媽完整 就不整理了)
+
+| 函數      | 註解      |
+| -------- |-------- |
+|.__next__()|查詢,查詢之前不會產生所以用next查詢時才會產生
 ||
 
+比一般產生的速度和佔容量大小更優秀
+```python
+# 生成器的方式返回的是一個公式的地址
+a = (i * 3 for i in range(10000000))
+# 一般定義的列表
+a = [i * 3 for i in range(10000000)]
+```
 
 
 #### demo
 * [03](https://github.com/kenson2998/old_boy_study/blob/master/0304_decorator_裝飾器.py)
+
 | 函數      | 註解      |
 | -------- |-------- |
 ||
