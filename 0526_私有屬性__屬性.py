@@ -21,4 +21,4 @@ print('顯示名字:', MAN.name)
 MAN.got_shot()
 
 MAN.show_status()
-# MAN.__shot()# 變成無法訪問的私有方法了
+# MAN.__shot()# 變成無法訪問的私有方法了 test
