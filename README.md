@@ -1,6 +1,18 @@
 ## python note list ##
+    
+#### python
+* [0304_回顧筆記](https://github.com/kenson2998/old_boy_study/blob/master/0304_回顧筆記.py)
+python2 默認用的是ascii
+python3 默認編碼是unicode
+GBK 可兼容GB2312
+unicode 存英文和中文都是兩個字節
+unicode 萬國碼
+GBK <-> Unicode <-> UTF-8  中間必須透過unicode轉換
+f = open  rb wb ab 打開的是二進制格式
+f = open('txt.txt','rb',encoding='utf-8')
 
-#### for ####
+
+#### for 
 * [0216 for 練習](https://github.com/kenson2998/old_boy_study/blob/master/0216%20for%E7%B7%B4%E7%BF%92.py)
   * range(0,5,2)   #每次迴圈+2
 #### list 
@@ -70,17 +82,31 @@
 | count     | 計算出現次數     |
 #### file
 * [0221_file](https://github.com/kenson2998/old_boy_study/blob/master/0221_file.py)
-
+* [0301_文件修改](https://github.com/kenson2998/old_boy_study/blob/master/0301_%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9.py)
 
 | 函數      | 註解      |
 | -------- | -------- |
 | open(file,'r')     | 讀檔案     |
 | open(file,'w')     | 寫檔案     |
 | open(file,'a')     | 加寫檔案     |
+
       f = open(file,'r') 
       f.readline() #讀取行
       f.tell() #顯示光標位置
       f.seek() #讓光標回到0
+      f.close() #關閉檔案
+
+
+| 另一開檔方法      | 註解      |
+| -------- | -------- |
+|with open(file,'r') as f: |這種寫法不需要下f.close()|
+
+    雙開檔案 一讀一寫
+    
+    with open('file_p', 'r') as f, \
+     open('file_p_修改', 'w') as f_new:
+
+     
 #### set
 * [0221_set集合](https://github.com/kenson2998/old_boy_study/blob/master/0221_set集合.py)
 #
@@ -100,4 +126,82 @@
 | set1.pop()   |    | 隨機刪除     |
 | set1.remove(777)   |    | 如果裡面沒有這個東西會報錯,有就刪除     |
 | set1.discard('333')   |    | 如果有這個就刪除，沒有也不會報錯     |
+#### sys
+* [0301_文件修改](https://github.com/kenson2998/old_boy_study/blob/master/0301_文件修改.py)
+* [0302_unicode](https://github.com/kenson2998/old_boy_study/blob/master/0302_unicode.py)
 
+| 函數      | 註解      |
+| -------- |-------- |
+|argv|接受cmd的訊息
+|getdefaultencoding()|獲取當前預設的解碼
+|decode('gbk')|編碼"簡體"
+|encode('utf-8')|解碼"utf-8"
+
+    >>>python script.py 1 2 3 4
+    print(argv)
+    >>>['script.py','1','2','3','4']
+    argv[1]
+    >>>1
+    
+#### def 
+* [0302_函數筆記1](https://github.com/kenson2998/old_boy_study/blob/master/0302_函數筆記1.py)
+* [0302_函數筆記2](https://github.com/kenson2998/old_boy_study/blob/master/0302_函數筆記2.py)
+* [0302_函數筆記3](https://github.com/kenson2998/old_boy_study/blob/master/0302_函數筆記3.py)
+* [0303_局部變量](https://github.com/kenson2998/old_boy_study/blob/master/0303_局部變量.py)
+* [0303_遞歸(迴)筆記](https://github.com/kenson2998/old_boy_study/blob/master/0303_遞歸筆記.py)
+* [0303_高階函數](https://github.com/kenson2998/old_boy_study/blob/master/0303_高階函數.py)
+* [0304_decorator_裝飾器、嵌套函數](https://github.com/kenson2998/old_boy_study/blob/master/0304_decorator_裝飾器.py)
+
+
+
+```python
+def foo():
+    print('123')
+```
+```python
+def decorator(func):
+    def warpper(*args, **kwargs):
+        ccc = 0
+        func(*args, **kwargs)
+        ddd = 0
+    return warpper
+    
+@decorator
+def func():
+    aaa = 0
+    bbb = 0
+    
+```
+    func()
+    第二種用法
+    
+| 裝飾後的func()執行順序      |  內容     |
+| -------- |-------- |
+|1|func()
+|2|ccc = 0
+|3|aaa = 0
+|4|bbb = 0
+|5|ddd = 0
+
+```python
+#嵌套函數
+def foo():
+    def func1():
+        pass
+
+    func1()
+```
+    
+#### 0312_局部作用域和全域訪問順序
+* [03](https://github.com/kenson2998/old_boy_study/blob/master/0304_decorator_裝飾器.py)
+| 函數      | 註解      |
+| -------- |-------- |
+||
+
+
+
+#### demo
+* [03](https://github.com/kenson2998/old_boy_study/blob/master/0304_decorator_裝飾器.py)
+| 函數      | 註解      |
+| -------- |-------- |
+||
