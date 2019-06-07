@@ -1,4 +1,4 @@
-## python note list ##
+# python note list 
     
 #### python
 * [0304_回顧筆記](https://github.com/kenson2998/old_boy_study/blob/master/0304_回顧筆記.py)
@@ -130,6 +130,7 @@ f = open('txt.txt','rb',encoding='utf-8')
 #### sys
 * [0301_文件修改](https://github.com/kenson2998/old_boy_study/blob/master/0301_文件修改.py)
 * [0302_unicode](https://github.com/kenson2998/old_boy_study/blob/master/0302_unicode.py)
+* [0328_優化import](https://github.com/kenson2998/old_boy_study/blob/master/0302_unicode.py)
 
 | 函數      | 註解      |
 | -------- |-------- |
@@ -137,12 +138,16 @@ f = open('txt.txt','rb',encoding='utf-8')
 |getdefaultencoding()|獲取當前預設的解碼
 |decode('gbk')|編碼"簡體"
 |encode('utf-8')|解碼"utf-8"
+|path|系統內的環境變數路徑
+|
 
-    >>>python script.py 1 2 3 4
-    print(argv)
-    >>>['script.py','1','2','3','4']
-    argv[1]
-    >>>1
+
+```>>>python script.py 1 2 3 4
+print(argv)
+>>>['script.py','1','2','3','4']
+argv[1]
+>>>1
+```
     
 #### def 
 * [0302_函數筆記1](https://github.com/kenson2998/old_boy_study/blob/master/0302_函數筆記1.py)
@@ -246,11 +251,12 @@ print(isinstance((x for x in range(10)),Iterator))
 
 #### generator
 * [0314_generator列表生成](https://github.com/kenson2998/old_boy_study/blob/master/0314_generator列表生成.py)(發現筆記他媽完整 就不整理了)
+* [0314_生成器並行](https://github.com/kenson2998/old_boy_study/blob/master/0314_生成器並行.py)
 
 | 函數      | 註解      |
 | -------- |-------- |
 |.__next__()|查詢,查詢之前不會產生所以用next查詢時才會產生
-||
+
 
 比一般產生的速度和佔容量大小更優秀
 ```python
@@ -261,8 +267,81 @@ a = [i * 3 for i in range(10000000)]
 ```
 
 
+#### json
+* [0315_json序列化](https://github.com/kenson2998/old_boy_study/blob/master/0315_json序列化.py)
+* [0315_json序列化](https://github.com/kenson2998/old_boy_study/blob/master/0315_json序列化2.py)
+* [0315_json序列化](https://github.com/kenson2998/old_boy_study/blob/master/0315_json序列化.py)
+* [0315_json序列化](https://github.com/kenson2998/old_boy_study/blob/master/0315_json序列化.py)
+
+| 函數      | 註解      |
+| -------- |-------- |
+|json.dumps|轉為json字典格式
+|pickle.dump|轉為二進制
+|pickle.load|等同於pickle.loads(f.read())
+ 
+#### lambda
+* [0315_內置方法練習](https://github.com/kenson2998/old_boy_study/blob/master/0315_內置方法練習.py)
+
+| 函數      | 註解      |
+| -------- |-------- |
+|filter|過濾
+|map|個別運算
+|[x * 2 for x in range(10)]|產生列表
+|functools.reduce(lambda x, y: x + y, range(3))|累加
+|divmod|相除取商和餘數
+|sorted(a.items())|依照key排序
+|sorted(a.items(), key=lambda x: x[1]))|依照value排序
+|for i, k in zip(a, b):|兩個元素對應,拼接
+|map(square, [1, 2, 3, 4, 5])|map 在一個可以迭代的（iterable）的元素，遍歷使用函數
+
+#### time
+* [0328_time](https://github.com/kenson2998/old_boy_study/blob/master/0328_time.py)
+
+| 函數      | 註解      |
+| -------- |-------- |
+|time.mktime(time.gmtime())|將struct_time格式轉為時間戳
+|time.gmtime()|公元時間
+|time.localtime()|本地時間
+|time.localtime().tm_year|獲取年
+|time.strftime("格式", 時間) |struct_time格式轉換成你想要的時間格式
+|time.strptime(時間, "格式") |依照提供的時間,對應轉換的格式,轉回struct_time的格式
+|ime.asctime()|接受元組tuple格式
+|time.ctime()|接受時間戳格式
+
+#### os
+* [0328_優化import](https://github.com/kenson2998/old_boy_study/blob/master/0328_優化import.py)
+
+| 函數      | 註解      |
+| -------- |-------- |
+|os.path.dirname('PATH')|查找這個'PATH'的目錄名稱
+|os.path.abspath(```__file__```))|執行當下的絕對路徑
+
+```
+$ python test.py          # 此時 __file__ 是 test.py
+$ python ../test.py       # 此時 __file__ 是 ../test.py
+$ python hello/../test.py # 此時 __file__ 是 hello/../test.py
+```
+
 #### demo
-* [03](https://github.com/kenson2998/old_boy_study/blob/master/0304_decorator_裝飾器.py)
+* [](https://github.com/kenson2998/old_boy_study/blob/master/.py)
+
+| 函數      | 註解      |
+| -------- |-------- |
+||
+#### demo
+* [](https://github.com/kenson2998/old_boy_study/blob/master/.py)
+
+| 函數      | 註解      |
+| -------- |-------- |
+||
+#### demo
+* [](https://github.com/kenson2998/old_boy_study/blob/master/.py)
+
+| 函數      | 註解      |
+| -------- |-------- |
+||
+#### demo
+* [](https://github.com/kenson2998/old_boy_study/blob/master/.py)
 
 | 函數      | 註解      |
 | -------- |-------- |
