@@ -2,12 +2,16 @@ class School(object):
     def __init__(self, name, addr):
         self.name = name
         self.addr = addr
-        self.teachers = []
         self.students = []
+        self.staffs = []
 
     def enroll(self, stu_obj):
         print("為學員%s辦理註冊手續" % stu_obj.name)
         self.students.append(stu_obj)
+    def hire(self,staff_obj):
+        print("雇用新員工 %s" % staff_obj.name)
+        self.staffs.append(staff_obj)
+
 
 
 class SchoolMember(object):
@@ -71,6 +75,16 @@ s1 = Student("Leon",30,"M",1001,"python")
 s2 = Student("Leo",24,"M",1002,"python")
 
 t1.tell()
-t2.tell()
 s1.tell()
-s2.tell()
+
+school.enroll(s1)
+school.enroll(s2)
+school.hire(t1)
+
+print(school.students)
+print(school.staffs)
+
+school.staffs[0].teach()
+
+for stu in school.students:
+    stu.pay_tuition(5000)
