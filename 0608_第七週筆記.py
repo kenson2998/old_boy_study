@@ -1,0 +1,43 @@
+'''
+類
+    屬性
+        實例變量
+        類變量
+        私有屬性 __var
+    方法
+        構造方法
+        析構函數
+        私有方法
+
+
+對象
+    實例化一個類之後得到的對象
+
+封裝
+    把一些功能的實現細節不對外暴露
+
+
+繼承
+    代碼的重用
+    單繼承
+    多繼承
+        2.7 經典類 是深度優先 新式類是廣度優先
+        3.x 全都是廣度優先
+    經典類 : class Foo:
+    新式類 : class Foo(object):
+
+    class Foo(Foo_father):
+        def __init__(self,name,age,sex,salary):
+            #因為Foo有inin構造函數了,會以Foo的為主,但是又想繼承Foo_father的某些功能 就會用到super
+            super(Foo,self).__init__(name,age,sex)
+            self.salary = salary
+
+
+多態
+    接口重用 ,一種接口,多種實現
+
+
+靜態方法
+    只是名義上歸類管理,實際上在靜態方法裡訪問不了類或實例中的任何屬性
+
+'''
