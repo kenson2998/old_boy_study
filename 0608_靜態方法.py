@@ -19,15 +19,15 @@ class Dog1(object):
 
     @staticmethod
     def eat(self, food):
-        print("%s is eating %s" % (self.name, food))
+        print("%s is eat %s" % (self.name, food))
 
     @staticmethod #靜態方法裝飾後實際上跟類沒什麼關係,把它當作一個單純的函數
     def eat1(self):
-        print("%s is eating %s" % (self.name, 'food'))
+        print("%s is eat1 %s" % (self.name, 'food'))
 
     @staticmethod  # 靜態方法裝飾後實際上跟類沒什麼關係,把它當作一個單純的函數
     def eat2(self):
-        print("%s is eating %s" % (self.name, 'food'))
+        print("%s is eat2 %s" % (self.name, 'food'))
 
 
 d = Dog1("旺財")
