@@ -56,3 +56,5 @@ c = C()
 print("module:", c.__module__)  # 輸出模塊
 print("class:", c.__class__)  # 輸出類
 
+print(c)
+
