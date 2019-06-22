@@ -48,5 +48,10 @@
     屬性賦值 @方法.setter
     刪除需要配置  @方法.deleter
 
+反射
+    hasattr(object,name_str) , 判斷一個對象object是否有對應的name_str方法
+    getattr(object,name_str) , 根據字符串去獲取object裡的對應的方法的內存地址
+    setattr(object,'y',z) , 相當於 object.y = z
+    delattr(object,
 
 '''
