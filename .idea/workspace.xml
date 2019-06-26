@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aae5fbe2-2a40-4808-be76-f504234f9c91" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/0622_反射_hasattr.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0608_第七週筆記.py" beforeDir="false" afterPath="$PROJECT_DIR$/0608_第七週筆記.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/0622_反射_hasattr.py" beforeDir="false" afterPath="$PROJECT_DIR$/0622_反射_hasattr.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/0622_反射_hasattr.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="65" column="26" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
+            <state relative-caret-position="-16">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
             </state>
           </provider>
         </entry>
@@ -87,7 +86,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="828" />
@@ -328,8 +327,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="828" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="828" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15926708" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -624,8 +622,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/0622_反射_hasattr.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="65" column="26" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
+        <state relative-caret-position="-16">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
         </state>
       </provider>
     </entry>

@@ -41,7 +41,7 @@ else:
     print('%s has no %s function' % (d.name, choice))
     # 沒有這個方法的時候,我想要加上一個方法
     if choice == 'talk':
-        setattr(d, choice, bulk)
+        setattr(d, choice, bulk) # 相當於 d.talk = bulk 
         s = getattr(d, choice)
         print('已加入這個方法：%s,  d.talk:%s' % (s, d.talk))
         getattr(d, choice)(d)
