@@ -54,4 +54,13 @@
     setattr(object,'y',z) , 相當於 object.y = z
     delattr(object,
 
+異常
+    try:
+        code
+    except (e1,e2) as e:
+
+    except Exception as e: 抓所有錯誤,建議放最後使用
+
+
+
 '''
