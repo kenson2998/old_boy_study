@@ -4,10 +4,17 @@ client = socket.socket()
 client.connect(("localhost", 6698))
 while True:
     cmd = input(">>:").strip()
-    if len(cmd) == 0: break
+    if len(cmd) == 1: break
     client.send(cmd.encode("utf-8"))
-    print(cmd)
-    data = client.recv(10240000)  # 接收的bytes 大小,如果設定太小有可能會無法接收過大的檔案
-    print("recv:", data.decode())
+    data = client.recv(1024)
+    print("命令結果大小", data)
+    rec_size = 1024
+    rec_size += int(data.decode())
+    while rec_size > int(data.decode()):
+        data1 = client.recv(rec_size)
+        print("秀一波:\n", data1.decode())
+        break
+    else:
+        print('recv size....', rec_size)
 
 client.close()

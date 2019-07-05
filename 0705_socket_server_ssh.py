@@ -12,5 +12,8 @@ while True:
         break
     print("執行指令: %s " % data)
     cmd_res = os.popen(data.decode()).read()  # data 是byte格式,所以要decode成str格式
+    conn.send(str(len(cmd_res)).encode("utf-8"))  # 傳送時要encode("utf-8")成byte格式
+
     conn.send(cmd_res.encode("utf-8"))  # 傳送時要encode("utf-8")成byte格式
+
 server.close()
