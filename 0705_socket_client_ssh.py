@@ -18,3 +18,5 @@ while True:
         print('recv size....', rec_size)
 
 client.close()
+
+# 上到第八週第11
