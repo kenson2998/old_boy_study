@@ -8,4 +8,4 @@ print(os.listdir(os.getcwd()))  # 查詢一個目錄下的所有目錄與檔案,
 print(os.sep)  # 相當於windows下的\\,linux下的/
 print(os.path.split('/user/a/c/a.txt'))  #切割目錄和檔名
 print(os.path.exists('/Users/leon/PycharmProjects/practice/老男孩python/'))
-print(os.path.join('/usr', '/abc'))
+print(os.path.join('/usr', '/abc')) # 目錄合併
