@@ -270,8 +270,8 @@ a = [i * 3 for i in range(10000000)]
 #### json
 * [0315_json序列化](https://github.com/kenson2998/old_boy_study/blob/master/0315_json序列化.py)
 * [0315_json序列化](https://github.com/kenson2998/old_boy_study/blob/master/0315_json序列化2.py)
-* [0315_json序列化](https://github.com/kenson2998/old_boy_study/blob/master/0315_json序列化.py)
-* [0315_json序列化](https://github.com/kenson2998/old_boy_study/blob/master/0315_json序列化.py)
+* [0315_json反序列化](https://github.com/kenson2998/old_boy_study/blob/master/0315_json反序列化.py)
+* [0315_json反序列化2](https://github.com/kenson2998/old_boy_study/blob/master/0315_json反序列化2.py)
 
 | 函數      | 註解      |
 | -------- |-------- |
