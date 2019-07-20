@@ -1,6 +1,6 @@
 # python note list 
     
-#### python
+## python
 * [0304_回顧筆記](https://github.com/kenson2998/old_boy_study/blob/master/0304_回顧筆記.py)
 
 ```python2 默認用的是ascii
@@ -310,11 +310,34 @@ a = [i * 3 for i in range(10000000)]
 
 #### os
 * [0328_優化import](https://github.com/kenson2998/old_boy_study/blob/master/0328_優化import.py)
+* [0411_os模塊](https://github.com/kenson2998/old_boy_study/blob/master/0411_os模塊.py)
+* [0519_os_module](https://github.com/kenson2998/old_boy_study/blob/master/0519_os_module.py)
+
+
 
 | 函數      | 註解      |
 | -------- |-------- |
 |os.path.dirname('PATH')|查找這個'PATH'的目錄名稱
 |os.path.abspath(```__file__```))|執行當下的絕對路徑
+print(os.getcwd())|獲取執行檔的當前目錄
+os.chdir('/dir/path'),`os.chdir('..')` |前往目錄
+print(os.listdir(os.getcwd())) | 查詢一個目錄下的所有目錄與檔案,包含隱藏檔案
+print(os.sep)  | 相當於windows下的`\\`,linux下的`/`
+print(os.path.split('/user/a/c/a.txt')) |切割目錄和檔名
+`print(os.path.exists('/Users/leon/PycharmProjects/practice/老男孩python/'))` | 目錄是否存在,True or False
+os.path.join('/usr', '/abc')|目錄合併, join的操作不只在os模塊
+`os.mkdir('\\a')` | 創建一個目錄 
+`os.rmdir('\\a')` | 刪除一個目錄
+os.pardir | 獲取當前目錄的上一層(父目錄)
+os.curdir | 獲取當前目錄
+os.listdir('.') | 顯示當前目錄
+os.remove() | 刪除一個文件
+os.rename('oldname','newname') | 重新命名檔案
+`os.makedirs(os.getcwd() + "\\a\\b\\c\\d")`|創建好幾層目錄(ex:c:\\a\\b\\c\\d),即使沒有b,c,d也能一次創建' 
+`os.removedirs(os.getcwd() + "\\a\\b\\c\\d")`|移除dirs,若目錄為空則刪除,如果有文件則不刪除,用於刪除空目錄的
+os.environ | 環境變數
+`os.name` | 顯示當前使用的os, win顯示nt , linux顯示posix :', 
+os.system('ping 8.8.8.8 -t 1')|cmd指令
 
 ```
 $ python test.py          # 此時 __file__ 是 test.py
@@ -322,27 +345,393 @@ $ python ../test.py       # 此時 __file__ 是 ../test.py
 $ python hello/../test.py # 此時 __file__ 是 hello/../test.py
 ```
 
-#### demo
-* [](https://github.com/kenson2998/old_boy_study/blob/master/.py)
+#### random
+* [0411_random](https://github.com/kenson2998/old_boy_study/blob/master/0411_random.py)
+* [0411_checkcode驗證碼](https://github.com/kenson2998/old_boy_study/blob/master/0411_checkcode驗證碼.py)
+
+函數      | 註解      |
+-------- |--------|
+random.random()|隨機0～1 浮點數|
+random.uniform(1, 2)| 可自己設定浮點數區間
+random.randint(1, 7)| 隨機1～7 整數, 包含7
+random.randrange(7)| range 顧頭不顧尾, 0~7的範圍, 不包含7
+random.choice('hello')|隨機選擇可傳入可遞歸的東西,'字串',[1,2,3],["hello"] ,'字串',[1,2,3]
+random.sample('hello', 2)| 可在後面設定要取幾位
+random.shuffle(list_a)| 洗牌功能([範例看這](https://github.com/kenson2998/old_boy_study/blob/master/0411_random.py))
+
+
+
+#### pickle ＆ json
+* [0411_json](https://github.com/kenson2998/old_boy_study/blob/master/0411_json.py)
 
 | 函數      | 註解      |
 | -------- |-------- |
-||
-#### demo
-* [](https://github.com/kenson2998/old_boy_study/blob/master/.py)
+pickle.dumps(data)| 將數據以特殊型式轉換為python語言認識的字符串
+pickle.dump(data,f)| 用pickle格式,寫入f檔案
+json.dumps(data)| 將數據以特殊型式轉換為所有語言認識的字符串
+json.dump(data,f)| 用json格式,寫入f檔案
+
+* [0411_json中的範例](https://github.com/kenson2998/old_boy_study/blob/master/0411_json.py)
+```python
+import pickle, json
+
+data1 = {'k1': 123, 'k2': 'hello'}
+
+p_str = pickle.dumps(data1)  # 將數據以特殊型式轉換為python語言認識的字符串
+print(p_str)
+
+# with open('pickle.pk','w') as pf: #pickle 寫入文件
+#     pickle.dump(data1,pf)
+
+j_str = json.dumps(data1)  # 將數據以特殊型式轉換為所有語言認識的字符串
+print(j_str)
+
+# with open('json.json','w') as jf: #json 寫入文件
+#     json.dump(data1,jf)
+```
+```
+b'\x80\x03}q\x00(X\x02\x00\x00\x00k1q\x01K{X\x02\x00\x00\x00k2q\x02X\x05\x00\x00\x00helloq\x03u.'
+
+{"k1": 123, "k2": "hello"}
+```
+
+
+#### shelve 永續(持續)化Python物件
+寫程式的時候如果不想用關聯式資料庫那麼重量級的東東去儲存資料，不妨可以試試用shelve,也是使用key,value來儲存
+* [0411_shelve模塊](https://github.com/kenson2998/old_boy_study/blob/master/0411_shelve模塊.py)
+
+
+```python 
+#寫入
+import shelve
+s = shelve.open('test_shelf.db')
+try:
+    s['key1'] = { 'int': 10, 'float':9.5, 'string':'Sample data' }
+finally:
+    s.close()
+```
+```python
+#讀取
+import shelve
+s = shelve.open('test_shelf.db')
+try:
+    existing = s['key1']
+finally:
+    s.close()
+print (existing) #印出結果
+```
+```
+{'int': 10, 'float': 9.5, 'string': 'Sample data'}
+```
+
+
+#### shutil & zipfile 壓縮模塊
+* [0411_shutil模塊](https://github.com/kenson2998/old_boy_study/blob/master/0411_shutil模塊.py)
 
 | 函數      | 註解      |
 | -------- |-------- |
-||
-#### demo
-* [](https://github.com/kenson2998/old_boy_study/blob/master/.py)
+shutil.copyfileobj(f1, f2)  | copy 內容
+shutil.copyfile('shutil_note2', 'shutil_note3')| copy文件
+shutil.copytree('old_dir','new_dir') |遞歸的複製目錄 #olddir和newdir都只能是目录，且newdir必须不存在
+shutil.rmtree('new_dir') | 遞歸移除目錄
+shutil.move('/sss/aaa.txt','/new_dir') | 移動文件
+shutil.make_archive('shutil_archive', 'zip', '/dir/dir') | 用shutil壓縮文件
+zipfile.ZipFile('day5.zip', 'w')| 打包 壓縮 zip ,打包不壓縮 tar
+
+
+```python
+import zipfile
+
+z = zipfile.ZipFile('day5.zip', 'w')
+z.write('shutil_note1')  # 指定要壓縮的檔案
+print('-------')  # 中間可以做別的事情
+z.write('shutil_note2')
+z.close()
+
+# 解壓
+z = zipfile.ZipFile('day5.zip','r')
+z.extractall()
+z.close()
+```
+
+#### sys
+* [0411_sys模塊](https://github.com/kenson2998/old_boy_study/blob/master/0411_sys模塊.py)
 
 | 函數      | 註解      |
 | -------- |-------- |
-||
-#### demo
-* [](https://github.com/kenson2998/old_boy_study/blob/master/.py)
+sys.version| 查看python版本
+sys.maxsize| 系統容量
+sys.exit(0) | 正常退出程序
+
+```python
+import sys, time
+
+# 之前的進度條
+for i in range(10):
+    sys.stdout.write('*')
+    sys.stdout.flush()
+    time.sleep(0.1)
+```
+
+#### hashlib ,hmac 加密模塊
+* [0414_hashlib模塊](https://github.com/kenson2998/old_boy_study/blob/master/0414_hashlib模塊.py)
 
 | 函數      | 註解      |
 | -------- |-------- |
-||
+hashlib.md5()|
+m.hexdigest()) #hex格式加密|
+hashlib.sha1()|
+hmac.new(b'string', b'string2')|
+
+
+#### XML
+
+`import xml.etree.ElementTree as ET`
+* [0414_xml創建](https://github.com/kenson2998/old_boy_study/blob/master/0414_xml創建.py)
+* [0414_xml修改](https://github.com/kenson2998/old_boy_study/blob/master/0414_xml修改.py)
+* [0414_xml修改](https://github.com/kenson2998/old_boy_study/blob/master/0414_xml修改.py)
+* [0414_output.xml](https://github.com/kenson2998/old_boy_study/blob/master/0414_output.xml)
+
+
+##### XML創建
+```python
+import xml.etree.ElementTree as ET
+
+new_xml = ET.Element('namelist')
+name = ET.SubElement(new_xml, 'name', attrib={"enrolled":"yes"})
+age = ET.SubElement(name, 'age', attrib={"checked":"no"})
+sex = ET.SubElement(name, 'sex')
+sex.text = '30'
+
+name2 = ET.SubElement(new_xml, 'name', attrib={"enrolled":"no"})
+age = ET.SubElement(name2, 'age')
+age.text = '20'
+
+et = ET.ElementTree(new_xml) # 生成文檔對象
+et.write('0414_test.xml', encoding='utf-8', xml_declaration=True) #xml_declaration：聲明是xml格式的文檔
+ET.dump(new_xml) #打印生成的格式
+```
+##### XML處理
+```python
+import xml.etree.ElementTree as ET
+
+tree = ET.parse('0414_xml.xml')
+root = tree.getroot()
+print(root.tag)
+
+for child in root:  ## 遍歷root
+    print('child.tag:{} ,child.attrib:{}'.format(child.tag, child.attrib))
+    for i in child:
+        print('i.tag:{} ,i.text:{} ,child.attrib:{}'.format(i.tag, i.text, i.attrib))
+
+for node in root.iter('year'):  # 遍歷單一節點
+    print(node.tag, node.text)
+```
+##### XML修改＆刪除
+```python
+
+import xml.etree.ElementTree as ET
+
+tree = ET.parse('0414_xml.xml')
+root = tree.getroot()
+
+# 修改
+for node in root.iter('year'):
+    new_year = int(node.text) + 1
+    node.text = str(new_year)
+    node.set('update', 'yes')
+
+tree.write('0414_xml.xml')
+
+# 刪除
+for country in root.findall('country'):
+    rank = int(country.find('rank').text)
+    if rank > 50:
+        root.remove(country)
+tree.write('0414_output.xml')
+```
+#### 面向對象 Object Oriented
+* [0415_面向對象Object Oriented](https://github.com/kenson2998/old_boy_study/blob/master/0415_面向對象Object_Oriented.py)
+* [0417_class_example(_init_構造函數)](https://github.com/kenson2998/old_boy_study/blob/master/0417_class_example(_init_%構造函數).py)
+* [0526_class_del_析構函數](https://github.com/kenson2998/old_boy_study/blob/master/0526_class_del_析構函數.py)
+* [0526_私有屬性__屬性](https://github.com/kenson2998/old_boy_study/blob/master/0526_私有屬性__屬性.py)
+* [0608_第七週筆記_Class詳細筆記](https://github.com/kenson2998/old_boy_study/blob/master/0608_第七週筆記.py)
+* [0616_item](https://github.com/kenson2998/old_boy_study/blob/master/0616_getitem.py)
+* [0619_metaclass](https://github.com/kenson2998/old_boy_study/blob/master/0619_metaclass.py)
+
+
+| 中文      | 英文      |
+| -------- |-------- |
+類別| class
+對象| object
+封裝| Encapsulation
+繼承| Inheritance
+多態| polymorphism
+靜態方法| @staticmethod
+類方法 | @classmethod
+屬性方法 | @property
+反射|hasattr,getattr,setattr,delattr
+
+python2 經典類class 繼承是按深度優先繼承, 新型類是依照廣度優先繼承
+python3 經典類與新型類都是依照廣度優先繼承
+
+| 函數      | 註解      |
+| - |- |
+`self.name = name` | 實例變量(靜態屬性),作用域就是實例本身
+self.__life_value = 100  | 私有屬性
+`def shot(self):`| 類的方法, 功能(動態屬性)
+`def __init__(self, name)`| 構造函數
+`def __new__(cls, *args, **kwargs):`|會比init還早做完,所以必須要做return的動作才會調用到`__init__`
+        print("Foo --new--")
+        return object.__new__(cls) #如果沒有return就不會接著做init(實例化)
+`def __del__(self):`| 析構函數(一定是最後才做的,用於實例釋放或銷毀的時候自動執行的,通常用於做一些收尾工作,如關閉一些數據庫鏈接、打開的臨時文件)
+`def __getitem__(self, key):`| `result = obj['k1'] #自動觸發執行 __getitem__`
+`def __setitem__(self, key):`|`# obj['k2'] = "alex" #自動觸發執行 __setitem__`
+`def __delitem__(self, key):`| `del obj['ddddd']  # 沒有ddddd也不會報錯 ,意思是使用字典去調用而已`
+`a = class_name('Leon')`|實例化
+`r1.bullet_prove = True` | 沒有的變數也可以在這邊生成
+`del r1.weapon` | 刪除變數
+`r1.n = '456' `| 修改r1的n
+
+```python
+class Foo:
+    '''描述這個類Foo是做什麼用的'''
+    
+print("印出Foo的描述說明：", Foo.__doc__)
+print("class.__dict__:",Foo.__dict__) #打印類裡的所有屬性,不包含實例屬性
+print("b.__dict__:",b.__dict__) #只顯示實際產生的屬性,不包含類屬性
+print("module:", c.__module__)  # 輸出模塊
+print("class:", c.__class__)  # 輸出類
+```
+
+
+
+##### 繼承 
+* [0601_繼承](https://github.com/kenson2998/old_boy_study/blob/master/0601_繼承.py)
+* [0607_多繼承](https://github.com/kenson2998/old_boy_study/blob/master/0607_多繼承.py)
+* [0607_多繼承區別_廣度繼承範例](https://github.com/kenson2998/old_boy_study/blob/master/0607_多繼承區別.py)
+* [0607_多繼承_school](https://github.com/kenson2998/old_boy_study/blob/master/0607_繼承_school.py)
+
+
+| 函數      | 註解      |
+| -------- |-------- |
+`class Man(People):`|繼承父親(People)的東西
+`People.__init__(self, name, age)` | 繼承的方法ㄧ
+`super(Man, self).__init__(name, age)` | 繼承的方法二
+
+
+##### 多態
+* [0608_多態](https://github.com/kenson2998/old_boy_study/blob/master/0608_多態.py)
+
+| 函數      | 註解      |
+| -------- |-------- |
+`def animal_talk(obj):` | 多態的性質：一個接口
+
+##### 靜態方法
+* [0608_靜態方法](https://github.com/kenson2998/old_boy_study/blob/master/0608_靜態方法.py)
+
+| 函數      | 註解      |
+| -------- |-------- |
+@staticmethod | 靜態方法裝飾後實際上跟類沒什麼關係,把它當作一個單純的函數
+
+##### 類方法
+* [0608_類方法](https://github.com/kenson2998/old_boy_study/blob/master/0608_類方法.py)
+
+| 函數      | 註解      |
+| -------- |-------- |
+@classmethod|
+
+##### 屬性方法
+* [0609_屬性方法](https://github.com/kenson2998/old_boy_study/blob/master/0609_屬性方法.py)
+* [0609_屬性方法例子](https://github.com/kenson2998/old_boy_study/blob/master/0609_屬性方法例子.py)
+
+| 函數      | 註解      |
+| -------- |-------- |
+@property| 屬性方法
+@foo.setter| 賦值
+@foo.deleter | foo想刪除food
+
+#####  新式類 class 
+* [0616___new__新式類](https://github.com/kenson2998/old_boy_study/blob/master/0616___new__新式類.py)
+Foo 是type一個實例對象
+f 是 FOO的實例對象
+```pyt
+創建class, 一個Foo對象 
+(object,) <~必須加逗點,因為他是元祖的形式,
+你不加一個逗點他就把它當作一個值了,加了逗點他才知道你是元祖的形式
+```
+`Foo = type("Foo", (object,), {"talk": func, "__init__": initt})`
+
+![](https://i.imgur.com/zh5mf0G.png)
+
+
+##### 反射_hasattr
+* [0622_反射_hasattr_範例](https://github.com/kenson2998/old_boy_study/blob/master/0622_反射_hasattr.py)
+
+
+
+#### 異常處理 try
+* [0626_異常處理_try](https://github.com/kenson2998/old_boy_study/blob/master/0626_異常處理_try.py)
+* [0626_自定義異常_classExcept](https://github.com/kenson2998/old_boy_study/blob/master/0626_自定義異常_classExcept.py)
+
+| 錯誤類型      | 註解      |
+| -------- |-------- |
+KeyError| 字典的key操作錯誤
+IndexError| 陣列的操作錯誤
+TypeError | 型態錯誤
+ValueError | 型態操作錯誤 , `s1 = "s" ,int(s1)`
+Exception | 大宗錯誤
+
+```python
+# 自定義異常
+class leonException(Exception):
+    def __init__(self, msg):
+        self.message = msg
+        self.sss = msg + "234"
+
+    def __str__(self):  # __str__ 用於定義返回的值為什麼格式
+        return self.message
+        # return '我是異常例外喔'
+
+
+try:
+    raise leonException('我的異常')  # raise (瑞斯) 觸發的意思
+except leonException as e:
+    print(e)
+
+```
+
+
+#### importlib 動態導入模塊
+
+如果遇到動態import的情況,需要用字串來import的話
+
+* [0702_動態導入模塊](https://github.com/kenson2998/old_boy_study/blob/master/0702_動態導入模塊.py)
+
+```python
+# from 0702module import aa
+
+# 如果遇到動態import的情況,需要用字串來import的話
+
+# import_from = input("請輸入你要improt的東西:").strip()
+# import_from2 = input("請輸入你要improt的東西:").strip()
+
+import_from = "0702module.aa"
+import_from2 = 'zxc'
+c = __import__(import_from, fromlist=[import_from2])
+
+if hasattr(c, import_from2):
+    func = getattr(c, import_from2)
+    print(func)
+
+
+# 官方建議用法
+import importlib
+import_from = "0702module.aa"
+import_from2 = 'zxc'
+b = importlib.import_module(import_from)
+
+if hasattr(b, import_from2):
+    func = getattr(b, import_from2)
+    print(func)
+```
